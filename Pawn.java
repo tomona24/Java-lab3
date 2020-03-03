@@ -2,16 +2,14 @@ public class Pawn extends Piece {
     private boolean promoted;
     private Piece newPiece;
 
-    public Pawn(boolean isWhite, boolean promoted, Piece newPiece) {
+    public Pawn(boolean isWhite) {
         super(1, isWhite);
-        this.promoted = promoted;
-        this.newPiece = newPiece;
-        promote(newPiece);
     }
 
     public void promote(Piece newPiece) {
-        if (promoted) {
-            setValue(newPiece.getValue());
+        if (!promoted) {
+            this.promoted = true;
+            this.newPiece = newPiece;
         }
     }
 
